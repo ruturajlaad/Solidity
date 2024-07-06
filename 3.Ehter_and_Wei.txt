@@ -1,0 +1,3 @@
+Ehther is currency of Ethereum
+-1 ether is 10^18 Wei
+-1Gwei is 10^9 Wei(in transactions)
