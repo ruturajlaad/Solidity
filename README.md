@@ -13,36 +13,7 @@
 6. **Events and Logging**: Provides event mechanisms for logging data on the blockchain, enabling off-chain applications to subscribe to and react to contract events.
 7. **Access Control**: Supports modifiers and access specifiers like `public`, `private`, and `internal` to control access to contract functions and state variables.
 
-### Example:
-Here’s a simple example of a Solidity contract for a basic token:
 
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-contract SimpleToken {
-    string public name = "SimpleToken";
-    string public symbol = "STK";
-    uint8 public decimals = 18;
-    uint256 public totalSupply;
-    mapping(address => uint256) public balanceOf;
-
-    event Transfer(address indexed from, address indexed to, uint256 value);
-
-    constructor(uint256 _initialSupply) {
-        totalSupply = _initialSupply * 10 ** uint256(decimals);
-        balanceOf[msg.sender] = totalSupply;
-    }
-
-    function transfer(address _to, uint256 _value) public returns (bool success) {
-        require(balanceOf[msg.sender] >= _value, "Insufficient balance");
-        balanceOf[msg.sender] -= _value;
-        balanceOf[_to] += _value;
-        emit Transfer(msg.sender, _to, _value);
-        return true;
-    }
-}
-```
 
 ### Use Cases:
 - **Decentralized Finance (DeFi)**: Creating financial applications without intermediaries.
